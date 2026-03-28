@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+KR:wght@200;300;400;500&display=swap');
+
+/* ── 변수 ── */
+:root {
+    --bg-deep: #0a0a0f;
+    --bg-card: #111118;
+    --bg-card-hover: #16161f;
+    --text-primary: #e8e4df;
+    --text-secondary: #8a8690;
+    --text-dim: #4a4650;
+    --accent: #c4956a;
+    --accent-dim: #6b5440;
+    --border: #1e1e28;
+    --border-light: #2a2a36;
+}
+
+/* ── 리셋 ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ── 배경 ── */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60vh;
+    background: linear-gradient(
+        180deg,
+        rgba(30, 20, 40, 0.8) 0%,
+        rgba(20, 15, 30, 0.4) 40%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── 헤더 ── */
+header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 80px 20px 40px;
+}
+
+.title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 8vw, 6rem);
+    letter-spacing: 0.15em;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--text-secondary);
+    letter-spacing: 0.08em;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.3s forwards;
+}
+
+.divider {
+    width: 60px;
+    height: 1px;
+    background: var(--accent-dim);
+    margin: 30px auto;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.5s forwards;
+}
+
+.collection-count {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.6s forwards;
+}
+
+/* ── 분위기 통계 ── */
+.stats {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 10px 20px 50px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.8s forwards;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.stat-item:hover {
+    border-color: var(--accent-dim);
+}
+
+.stat-item.active {
+    border-color: var(--accent);
+    background: var(--bg-card-hover);
+}
+
+.stat-emoji {
+    font-size: 1rem;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.stat-count {
+    color: var(--accent);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ── 갤러리 그리드 ── */
+.gallery {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+    padding: 0 clamp(20px, 4vw, 60px) 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ── 카드 ── */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.card.hidden {
+    display: none;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-light);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.card-image-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #0d0d14;
+}
+
+.card-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.card:hover .card-photo {
+    transform: scale(1.03);
+}
+
+.no-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+.card-mood-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 10, 15, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 50%;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── 팔레트 바 ── */
+.card-palette {
+    display: flex;
+    height: 32px;
+    border-top: 1px solid var(--border);
+}
+
+.swatch {
+    position: relative;
+    min-width: 0;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.swatch:hover {
+    opacity: 0.85;
+}
+
+.swatch-label {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: rgba(10, 10, 15, 0.92);
+    color: var(--text-primary);
+    font-size: 0.65rem;
+    font-family: 'Courier New', monospace;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+    border: 1px solid var(--border-light);
+}
+
+.swatch:hover .swatch-label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-4px);
+}
+
+/* ── 카드 정보 ── */
+.card-info {
+    padding: 16px 20px 20px;
+}
+
+.card-mood-text {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.card-meta {
+    display: flex;
+    gap: 16px;
+}
+
+.meta-item {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+}
+
+/* ── 푸터 ── */
+footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px 20px 60px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+}
+
+/* ── 애니메이션 ── */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── 반응형 ── */
+@media (max-width: 420px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .stats {
+        gap: 12px;
+    }
+
+    .card-palette {
+        height: 24px;
+    }
+
+    header {
+        padding: 50px 16px 30px;
+    }
+}
