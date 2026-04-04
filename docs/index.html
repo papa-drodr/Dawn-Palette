@@ -11,64 +11,83 @@
         <h1 class="title">Dawn Palette</h1>
         <p class="subtitle">collected colors of dawn</p>
         <div class="divider"></div>
-        <p class="collection-count">10 dawns collected</p>
+        <p class="collection-count">22 dawns collected</p>
     </header>
 
+    <section class="upload-section" id="upload-section">
+        <div class="upload-area" id="upload-area">
+            <div class="upload-icon">🌅</div>
+            <p class="upload-text">새벽 사진을 여기에 드래그하거나</p>
+            <label class="upload-button" for="file-input">파일 선택</label>
+            <input type="file" id="file-input" accept="image/*" hidden>
+            <p class="upload-hint">JPG, PNG 지원</p>
+        </div>
+        <div class="upload-result" id="upload-result" style="display:none;">
+            <div class="upload-result-image">
+                <img id="upload-preview" alt="uploaded dawn">
+            </div>
+            <div class="upload-result-palette" id="upload-palette"></div>
+            <div class="upload-result-info" id="upload-info"></div>
+            <button class="upload-reset" onclick="resetUpload()">다른 사진 분석하기</button>
+        </div>
+    </section>
+
     <section class="stats">
-        
             <div class="stat-item" data-mood="cool_dawn" onclick="filterMood('cool_dawn')">
                 <span class="stat-emoji">🧊</span>
                 <span class="stat-label">cool dawn</span>
-                <span class="stat-count">5</span>
+                <span class="stat-count">10</span>
             </div>
             <div class="stat-item" data-mood="pastel_dawn" onclick="filterMood('pastel_dawn')">
                 <span class="stat-emoji">🎨</span>
                 <span class="stat-label">pastel dawn</span>
-                <span class="stat-count">3</span>
+                <span class="stat-count">5</span>
             </div>
             <div class="stat-item" data-mood="deep_night" onclick="filterMood('deep_night')">
                 <span class="stat-emoji">🌑</span>
                 <span class="stat-label">deep night</span>
-                <span class="stat-count">1</span>
+                <span class="stat-count">3</span>
             </div>
             <div class="stat-item" data-mood="burning_dawn" onclick="filterMood('burning_dawn')">
                 <span class="stat-emoji">🔥</span>
                 <span class="stat-label">burning dawn</span>
+                <span class="stat-count">2</span>
+            </div>
+            <div class="stat-item" data-mood="blue_hour" onclick="filterMood('blue_hour')">
+                <span class="stat-emoji">💙</span>
+                <span class="stat-label">blue hour</span>
+                <span class="stat-count">1</span>
+            </div>
+            <div class="stat-item" data-mood="purple_dawn" onclick="filterMood('purple_dawn')">
+                <span class="stat-emoji">💜</span>
+                <span class="stat-label">purple dawn</span>
                 <span class="stat-count">1</span>
             </div>
     </section>
 
     <main class="gallery">
-        
         <article class="card" data-mood="pastel_dawn" style="animation-delay: 0.0s">
             <div class="card-image-wrap">
                 <img src="photos/2017-08-27_-IMlv9Jlb24.jpg" alt="dawn" class="card-photo" loading="lazy">
                 <div class="card-mood-badge">🎨</div>
             </div>
             <div class="card-palette">
-                
-                <div class="swatch" style="background:#f88f5e; flex-grow:21.7;"
-                     title="#f88f5e (21.7%)">
+                <div class="swatch" style="background:#f88f5e; flex-grow:21.7;" title="#f88f5e (21.7%)">
                     <span class="swatch-label">#f88f5e</span>
                 </div>
-                <div class="swatch" style="background:#a26e66; flex-grow:19.5;"
-                     title="#a26e66 (19.5%)">
+                <div class="swatch" style="background:#a26e66; flex-grow:19.5;" title="#a26e66 (19.5%)">
                     <span class="swatch-label">#a26e66</span>
                 </div>
-                <div class="swatch" style="background:#cf816a; flex-grow:18.8;"
-                     title="#cf816a (18.8%)">
+                <div class="swatch" style="background:#cf816a; flex-grow:18.8;" title="#cf816a (18.8%)">
                     <span class="swatch-label">#cf816a</span>
                 </div>
-                <div class="swatch" style="background:#785d5f; flex-grow:16.1;"
-                     title="#785d5f (16.1%)">
+                <div class="swatch" style="background:#785d5f; flex-grow:16.1;" title="#785d5f (16.1%)">
                     <span class="swatch-label">#785d5f</span>
                 </div>
-                <div class="swatch" style="background:#f9bb7b; flex-grow:16.0;"
-                     title="#f9bb7b (16.0%)">
+                <div class="swatch" style="background:#f9bb7b; flex-grow:16.0;" title="#f9bb7b (16.0%)">
                     <span class="swatch-label">#f9bb7b</span>
                 </div>
-                <div class="swatch" style="background:#f8dca8; flex-grow:7.9;"
-                     title="#f8dca8 (7.9%)">
+                <div class="swatch" style="background:#f8dca8; flex-grow:7.9;" title="#f8dca8 (7.9%)">
                     <span class="swatch-label">#f8dca8</span>
                 </div>
             </div>
@@ -82,33 +101,92 @@
         </article>
         <article class="card" data-mood="pastel_dawn" style="animation-delay: 0.08s">
             <div class="card-image-wrap">
+                <img src="photos/2018-01-02_ho426z37_g0.jpg" alt="dawn" class="card-photo" loading="lazy">
+                <div class="card-mood-badge">🎨</div>
+            </div>
+            <div class="card-palette">
+                <div class="swatch" style="background:#f3a14d; flex-grow:30.9;" title="#f3a14d (30.9%)">
+                    <span class="swatch-label">#f3a14d</span>
+                </div>
+                <div class="swatch" style="background:#feb555; flex-grow:29.7;" title="#feb555 (29.7%)">
+                    <span class="swatch-label">#feb555</span>
+                </div>
+                <div class="swatch" style="background:#e09248; flex-grow:21.1;" title="#e09248 (21.1%)">
+                    <span class="swatch-label">#e09248</span>
+                </div>
+                <div class="swatch" style="background:#222124; flex-grow:12.2;" title="#222124 (12.2%)">
+                    <span class="swatch-label">#222124</span>
+                </div>
+                <div class="swatch" style="background:#bb6c37; flex-grow:3.7;" title="#bb6c37 (3.7%)">
+                    <span class="swatch-label">#bb6c37</span>
+                </div>
+                <div class="swatch" style="background:#76492e; flex-grow:2.4;" title="#76492e (2.4%)">
+                    <span class="swatch-label">#76492e</span>
+                </div>
+            </div>
+            <div class="card-info">
+                <p class="card-mood-text">파스텔 새벽, 부드러운 색들이 어우러진 하늘</p>
+                <div class="card-meta">
+                    <span class="meta-item">따뜻함 87.8%</span>
+                    <span class="meta-item">밝기 177.0</span>
+                </div>
+            </div>
+        </article>
+        <article class="card" data-mood="blue_hour" style="animation-delay: 0.16s">
+            <div class="card-image-wrap">
+                <img src="photos/2019-05-24_8bCSWje3Jqg.jpg" alt="dawn" class="card-photo" loading="lazy">
+                <div class="card-mood-badge">💙</div>
+            </div>
+            <div class="card-palette">
+                <div class="swatch" style="background:#3f4657; flex-grow:34.4;" title="#3f4657 (34.4%)">
+                    <span class="swatch-label">#3f4657</span>
+                </div>
+                <div class="swatch" style="background:#1d2f41; flex-grow:18.6;" title="#1d2f41 (18.6%)">
+                    <span class="swatch-label">#1d2f41</span>
+                </div>
+                <div class="swatch" style="background:#536576; flex-grow:17.7;" title="#536576 (17.7%)">
+                    <span class="swatch-label">#536576</span>
+                </div>
+                <div class="swatch" style="background:#7b929e; flex-grow:12.9;" title="#7b929e (12.9%)">
+                    <span class="swatch-label">#7b929e</span>
+                </div>
+                <div class="swatch" style="background:#b7b3b2; flex-grow:12.1;" title="#b7b3b2 (12.1%)">
+                    <span class="swatch-label">#b7b3b2</span>
+                </div>
+                <div class="swatch" style="background:#a66c64; flex-grow:4.4;" title="#a66c64 (4.4%)">
+                    <span class="swatch-label">#a66c64</span>
+                </div>
+            </div>
+            <div class="card-info">
+                <p class="card-mood-text">파란 시간, 밤과 낮 사이의 몽환적인 순간</p>
+                <div class="card-meta">
+                    <span class="meta-item">따뜻함 16.5%</span>
+                    <span class="meta-item">밝기 129.5</span>
+                </div>
+            </div>
+        </article>
+        <article class="card" data-mood="pastel_dawn" style="animation-delay: 0.24s">
+            <div class="card-image-wrap">
                 <img src="photos/2019-10-09_u_vIqGqTob0.jpg" alt="dawn" class="card-photo" loading="lazy">
                 <div class="card-mood-badge">🎨</div>
             </div>
             <div class="card-palette">
-                
-                <div class="swatch" style="background:#1c4076; flex-grow:26.3;"
-                     title="#1c4076 (26.3%)">
+                <div class="swatch" style="background:#1c4076; flex-grow:26.3;" title="#1c4076 (26.3%)">
                     <span class="swatch-label">#1c4076</span>
                 </div>
-                <div class="swatch" style="background:#0d2750; flex-grow:22.6;"
-                     title="#0d2750 (22.6%)">
+                <div class="swatch" style="background:#0d2750; flex-grow:22.6;" title="#0d2750 (22.6%)">
                     <span class="swatch-label">#0d2750</span>
                 </div>
-                <div class="swatch" style="background:#3e608d; flex-grow:17.7;"
-                     title="#3e608d (17.7%)">
+                <div class="swatch" style="background:#3e608d; flex-grow:17.7;" title="#3e608d (17.7%)">
                     <span class="swatch-label">#3e608d</span>
                 </div>
-                <div class="swatch" style="background:#727f99; flex-grow:13.7;"
-                     title="#727f99 (13.7%)">
+                <div class="swatch" style="background:#727f99; flex-grow:13.7;" title="#727f99 (13.7%)">
                     <span class="swatch-label">#727f99</span>
                 </div>
-                <div class="swatch" style="background:#b09d9d; flex-grow:10.5;"
-                     title="#b09d9d (10.5%)">
+                <div class="swatch" style="background:#b09d9d; flex-grow:10.5;" title="#b09d9d (10.5%)">
                     <span class="swatch-label">#b09d9d</span>
                 </div>
-                <div class="swatch" style="background:#f3c498; flex-grow:9.2;"
-                     title="#f3c498 (9.2%)">
+                <div class="swatch" style="background:#f3c498; flex-grow:9.2;" title="#f3c498 (9.2%)">
                     <span class="swatch-label">#f3c498</span>
                 </div>
             </div>
@@ -120,35 +198,28 @@
                 </div>
             </div>
         </article>
-        <article class="card" data-mood="deep_night" style="animation-delay: 0.16s">
+        <article class="card" data-mood="deep_night" style="animation-delay: 0.32s">
             <div class="card-image-wrap">
                 <img src="photos/2021-02-13_M1b5uuc4riM.jpg" alt="dawn" class="card-photo" loading="lazy">
                 <div class="card-mood-badge">🌑</div>
             </div>
             <div class="card-palette">
-                
-                <div class="swatch" style="background:#2e4048; flex-grow:29.1;"
-                     title="#2e4048 (29.1%)">
+                <div class="swatch" style="background:#2e4048; flex-grow:29.1;" title="#2e4048 (29.1%)">
                     <span class="swatch-label">#2e4048</span>
                 </div>
-                <div class="swatch" style="background:#3b4950; flex-grow:23.1;"
-                     title="#3b4950 (23.1%)">
+                <div class="swatch" style="background:#3b4950; flex-grow:23.1;" title="#3b4950 (23.1%)">
                     <span class="swatch-label">#3b4950</span>
                 </div>
-                <div class="swatch" style="background:#223741; flex-grow:19.9;"
-                     title="#223741 (19.9%)">
+                <div class="swatch" style="background:#223741; flex-grow:19.9;" title="#223741 (19.9%)">
                     <span class="swatch-label">#223741</span>
                 </div>
-                <div class="swatch" style="background:#132c37; flex-grow:12.9;"
-                     title="#132c37 (12.9%)">
+                <div class="swatch" style="background:#132c37; flex-grow:12.9;" title="#132c37 (12.9%)">
                     <span class="swatch-label">#132c37</span>
                 </div>
-                <div class="swatch" style="background:#4d5557; flex-grow:9.5;"
-                     title="#4d5557 (9.5%)">
+                <div class="swatch" style="background:#4d5557; flex-grow:9.5;" title="#4d5557 (9.5%)">
                     <span class="swatch-label">#4d5557</span>
                 </div>
-                <div class="swatch" style="background:#626362; flex-grow:5.4;"
-                     title="#626362 (5.4%)">
+                <div class="swatch" style="background:#626362; flex-grow:5.4;" title="#626362 (5.4%)">
                     <span class="swatch-label">#626362</span>
                 </div>
             </div>
@@ -160,35 +231,61 @@
                 </div>
             </div>
         </article>
-        <article class="card" data-mood="cool_dawn" style="animation-delay: 0.24s">
+        <article class="card" data-mood="cool_dawn" style="animation-delay: 0.4s">
+            <div class="card-image-wrap">
+                <img src="photos/2021-02-17_1BF82kLvOKI.jpg" alt="dawn" class="card-photo" loading="lazy">
+                <div class="card-mood-badge">🧊</div>
+            </div>
+            <div class="card-palette">
+                <div class="swatch" style="background:#6c4855; flex-grow:25.3;" title="#6c4855 (25.3%)">
+                    <span class="swatch-label">#6c4855</span>
+                </div>
+                <div class="swatch" style="background:#995a5d; flex-grow:23.2;" title="#995a5d (23.2%)">
+                    <span class="swatch-label">#995a5d</span>
+                </div>
+                <div class="swatch" style="background:#c2675a; flex-grow:21.0;" title="#c2675a (21.0%)">
+                    <span class="swatch-label">#c2675a</span>
+                </div>
+                <div class="swatch" style="background:#3d3342; flex-grow:11.9;" title="#3d3342 (11.9%)">
+                    <span class="swatch-label">#3d3342</span>
+                </div>
+                <div class="swatch" style="background:#df8d6d; flex-grow:11.1;" title="#df8d6d (11.1%)">
+                    <span class="swatch-label">#df8d6d</span>
+                </div>
+                <div class="swatch" style="background:#e7bfb6; flex-grow:7.4;" title="#e7bfb6 (7.4%)">
+                    <span class="swatch-label">#e7bfb6</span>
+                </div>
+            </div>
+            <div class="card-info">
+                <p class="card-mood-text">차가운 새벽, 맑고 푸른 여명</p>
+                <div class="card-meta">
+                    <span class="meta-item">따뜻함 88.0%</span>
+                    <span class="meta-item">밝기 162.5</span>
+                </div>
+            </div>
+        </article>
+        <article class="card" data-mood="cool_dawn" style="animation-delay: 0.48s">
             <div class="card-image-wrap">
                 <img src="photos/2021-02-28_mowl8OWbJmo.jpg" alt="dawn" class="card-photo" loading="lazy">
                 <div class="card-mood-badge">🧊</div>
             </div>
             <div class="card-palette">
-                
-                <div class="swatch" style="background:#0d1743; flex-grow:25.0;"
-                     title="#0d1743 (25.0%)">
+                <div class="swatch" style="background:#0d1743; flex-grow:25.0;" title="#0d1743 (25.0%)">
                     <span class="swatch-label">#0d1743</span>
                 </div>
-                <div class="swatch" style="background:#3c3962; flex-grow:22.4;"
-                     title="#3c3962 (22.4%)">
+                <div class="swatch" style="background:#3c3962; flex-grow:22.4;" title="#3c3962 (22.4%)">
                     <span class="swatch-label">#3c3962</span>
                 </div>
-                <div class="swatch" style="background:#735d75; flex-grow:19.4;"
-                     title="#735d75 (19.4%)">
+                <div class="swatch" style="background:#735d75; flex-grow:19.4;" title="#735d75 (19.4%)">
                     <span class="swatch-label">#735d75</span>
                 </div>
-                <div class="swatch" style="background:#aa8486; flex-grow:15.0;"
-                     title="#aa8486 (15.0%)">
+                <div class="swatch" style="background:#aa8486; flex-grow:15.0;" title="#aa8486 (15.0%)">
                     <span class="swatch-label">#aa8486</span>
                 </div>
-                <div class="swatch" style="background:#e8b78c; flex-grow:12.1;"
-                     title="#e8b78c (12.1%)">
+                <div class="swatch" style="background:#e8b78c; flex-grow:12.1;" title="#e8b78c (12.1%)">
                     <span class="swatch-label">#e8b78c</span>
                 </div>
-                <div class="swatch" style="background:#eba330; flex-grow:6.1;"
-                     title="#eba330 (6.1%)">
+                <div class="swatch" style="background:#eba330; flex-grow:6.1;" title="#eba330 (6.1%)">
                     <span class="swatch-label">#eba330</span>
                 </div>
             </div>
@@ -200,35 +297,160 @@
                 </div>
             </div>
         </article>
-        <article class="card" data-mood="cool_dawn" style="animation-delay: 0.32s">
+        <article class="card" data-mood="cool_dawn" style="animation-delay: 0.56s">
+            <div class="card-image-wrap">
+                <img src="photos/2021-05-06_i9UseUwFBio.jpg" alt="dawn" class="card-photo" loading="lazy">
+                <div class="card-mood-badge">🧊</div>
+            </div>
+            <div class="card-palette">
+                <div class="swatch" style="background:#0d1c2e; flex-grow:38.8;" title="#0d1c2e (38.8%)">
+                    <span class="swatch-label">#0d1c2e</span>
+                </div>
+                <div class="swatch" style="background:#08101d; flex-grow:30.6;" title="#08101d (30.6%)">
+                    <span class="swatch-label">#08101d</span>
+                </div>
+                <div class="swatch" style="background:#9aa6a7; flex-grow:9.7;" title="#9aa6a7 (9.7%)">
+                    <span class="swatch-label">#9aa6a7</span>
+                </div>
+                <div class="swatch" style="background:#233244; flex-grow:9.5;" title="#233244 (9.5%)">
+                    <span class="swatch-label">#233244</span>
+                </div>
+                <div class="swatch" style="background:#76848d; flex-grow:5.9;" title="#76848d (5.9%)">
+                    <span class="swatch-label">#76848d</span>
+                </div>
+                <div class="swatch" style="background:#4a5967; flex-grow:5.4;" title="#4a5967 (5.4%)">
+                    <span class="swatch-label">#4a5967</span>
+                </div>
+            </div>
+            <div class="card-info">
+                <p class="card-mood-text">차가운 새벽, 맑고 푸른 여명</p>
+                <div class="card-meta">
+                    <span class="meta-item">따뜻함 0%</span>
+                    <span class="meta-item">밝기 92.3</span>
+                </div>
+            </div>
+        </article>
+        <article class="card" data-mood="purple_dawn" style="animation-delay: 0.64s">
+            <div class="card-image-wrap">
+                <img src="photos/2021-05-08_tBdDvIk8vTA.jpg" alt="dawn" class="card-photo" loading="lazy">
+                <div class="card-mood-badge">💜</div>
+            </div>
+            <div class="card-palette">
+                <div class="swatch" style="background:#030102; flex-grow:34.3;" title="#030102 (34.3%)">
+                    <span class="swatch-label">#030102</span>
+                </div>
+                <div class="swatch" style="background:#ddd7e0; flex-grow:22.7;" title="#ddd7e0 (22.7%)">
+                    <span class="swatch-label">#ddd7e0</span>
+                </div>
+                <div class="swatch" style="background:#86a9d2; flex-grow:15.2;" title="#86a9d2 (15.2%)">
+                    <span class="swatch-label">#86a9d2</span>
+                </div>
+                <div class="swatch" style="background:#3468a7; flex-grow:10.6;" title="#3468a7 (10.6%)">
+                    <span class="swatch-label">#3468a7</span>
+                </div>
+                <div class="swatch" style="background:#443250; flex-grow:9.1;" title="#443250 (9.1%)">
+                    <span class="swatch-label">#443250</span>
+                </div>
+                <div class="swatch" style="background:#d18a8f; flex-grow:8.2;" title="#d18a8f (8.2%)">
+                    <span class="swatch-label">#d18a8f</span>
+                </div>
+            </div>
+            <div class="card-info">
+                <p class="card-mood-text">보랏빛 새벽, 신비로운 여명의 시작</p>
+                <div class="card-meta">
+                    <span class="meta-item">따뜻함 42.5%</span>
+                    <span class="meta-item">밝기 148.8</span>
+                </div>
+            </div>
+        </article>
+        <article class="card" data-mood="deep_night" style="animation-delay: 0.72s">
+            <div class="card-image-wrap">
+                <img src="photos/2021-09-20_NSB8atRrEOI.jpg" alt="dawn" class="card-photo" loading="lazy">
+                <div class="card-mood-badge">🌑</div>
+            </div>
+            <div class="card-palette">
+                <div class="swatch" style="background:#111f36; flex-grow:24.9;" title="#111f36 (24.9%)">
+                    <span class="swatch-label">#111f36</span>
+                </div>
+                <div class="swatch" style="background:#1b2a40; flex-grow:22.1;" title="#1b2a40 (22.1%)">
+                    <span class="swatch-label">#1b2a40</span>
+                </div>
+                <div class="swatch" style="background:#28354a; flex-grow:18.0;" title="#28354a (18.0%)">
+                    <span class="swatch-label">#28354a</span>
+                </div>
+                <div class="swatch" style="background:#394152; flex-grow:13.3;" title="#394152 (13.3%)">
+                    <span class="swatch-label">#394152</span>
+                </div>
+                <div class="swatch" style="background:#071529; flex-grow:12.7;" title="#071529 (12.7%)">
+                    <span class="swatch-label">#071529</span>
+                </div>
+                <div class="swatch" style="background:#4c4f59; flex-grow:9.0;" title="#4c4f59 (9.0%)">
+                    <span class="swatch-label">#4c4f59</span>
+                </div>
+            </div>
+            <div class="card-info">
+                <p class="card-mood-text">아직 깊은 밤, 새벽을 기다리는 고요한 어둠</p>
+                <div class="card-meta">
+                    <span class="meta-item">따뜻함 0%</span>
+                    <span class="meta-item">밝기 67.3</span>
+                </div>
+            </div>
+        </article>
+        <article class="card" data-mood="cool_dawn" style="animation-delay: 0.8s">
+            <div class="card-image-wrap">
+                <img src="photos/2021-10-08_0WXjYggIoms.jpg" alt="dawn" class="card-photo" loading="lazy">
+                <div class="card-mood-badge">🧊</div>
+            </div>
+            <div class="card-palette">
+                <div class="swatch" style="background:#030101; flex-grow:29.2;" title="#030101 (29.2%)">
+                    <span class="swatch-label">#030101</span>
+                </div>
+                <div class="swatch" style="background:#fb5f57; flex-grow:19.6;" title="#fb5f57 (19.6%)">
+                    <span class="swatch-label">#fb5f57</span>
+                </div>
+                <div class="swatch" style="background:#b9515d; flex-grow:14.8;" title="#b9515d (14.8%)">
+                    <span class="swatch-label">#b9515d</span>
+                </div>
+                <div class="swatch" style="background:#1b0708; flex-grow:14.5;" title="#1b0708 (14.5%)">
+                    <span class="swatch-label">#1b0708</span>
+                </div>
+                <div class="swatch" style="background:#da555c; flex-grow:12.6;" title="#da555c (12.6%)">
+                    <span class="swatch-label">#da555c</span>
+                </div>
+                <div class="swatch" style="background:#a24451; flex-grow:9.4;" title="#a24451 (9.4%)">
+                    <span class="swatch-label">#a24451</span>
+                </div>
+            </div>
+            <div class="card-info">
+                <p class="card-mood-text">차가운 새벽, 맑고 푸른 여명</p>
+                <div class="card-meta">
+                    <span class="meta-item">따뜻함 100.1%</span>
+                    <span class="meta-item">밝기 141.0</span>
+                </div>
+            </div>
+        </article>
+        <article class="card" data-mood="cool_dawn" style="animation-delay: 0.88s">
             <div class="card-image-wrap">
                 <img src="photos/2021-10-17_I5XqhTTCC3g.jpg" alt="dawn" class="card-photo" loading="lazy">
                 <div class="card-mood-badge">🧊</div>
             </div>
             <div class="card-palette">
-                
-                <div class="swatch" style="background:#9b98a4; flex-grow:22.8;"
-                     title="#9b98a4 (22.8%)">
+                <div class="swatch" style="background:#9b98a4; flex-grow:22.8;" title="#9b98a4 (22.8%)">
                     <span class="swatch-label">#9b98a4</span>
                 </div>
-                <div class="swatch" style="background:#8a8b9c; flex-grow:22.0;"
-                     title="#8a8b9c (22.0%)">
+                <div class="swatch" style="background:#8a8b9c; flex-grow:22.0;" title="#8a8b9c (22.0%)">
                     <span class="swatch-label">#8a8b9c</span>
                 </div>
-                <div class="swatch" style="background:#afa9af; flex-grow:21.3;"
-                     title="#afa9af (21.3%)">
+                <div class="swatch" style="background:#afa9af; flex-grow:21.3;" title="#afa9af (21.3%)">
                     <span class="swatch-label">#afa9af</span>
                 </div>
-                <div class="swatch" style="background:#7a7c8d; flex-grow:16.1;"
-                     title="#7a7c8d (16.1%)">
+                <div class="swatch" style="background:#7a7c8d; flex-grow:16.1;" title="#7a7c8d (16.1%)">
                     <span class="swatch-label">#7a7c8d</span>
                 </div>
-                <div class="swatch" style="background:#c5b2a9; flex-grow:9.8;"
-                     title="#c5b2a9 (9.8%)">
+                <div class="swatch" style="background:#c5b2a9; flex-grow:9.8;" title="#c5b2a9 (9.8%)">
                     <span class="swatch-label">#c5b2a9</span>
                 </div>
-                <div class="swatch" style="background:#676d84; flex-grow:8.1;"
-                     title="#676d84 (8.1%)">
+                <div class="swatch" style="background:#676d84; flex-grow:8.1;" title="#676d84 (8.1%)">
                     <span class="swatch-label">#676d84</span>
                 </div>
             </div>
@@ -240,35 +462,94 @@
                 </div>
             </div>
         </article>
-        <article class="card" data-mood="cool_dawn" style="animation-delay: 0.4s">
+        <article class="card" data-mood="cool_dawn" style="animation-delay: 0.96s">
+            <div class="card-image-wrap">
+                <img src="photos/2022-01-20_y67gSUHeD_4.jpg" alt="dawn" class="card-photo" loading="lazy">
+                <div class="card-mood-badge">🧊</div>
+            </div>
+            <div class="card-palette">
+                <div class="swatch" style="background:#25355d; flex-grow:25.2;" title="#25355d (25.2%)">
+                    <span class="swatch-label">#25355d</span>
+                </div>
+                <div class="swatch" style="background:#2e4773; flex-grow:22.3;" title="#2e4773 (22.3%)">
+                    <span class="swatch-label">#2e4773</span>
+                </div>
+                <div class="swatch" style="background:#3a5f85; flex-grow:16.4;" title="#3a5f85 (16.4%)">
+                    <span class="swatch-label">#3a5f85</span>
+                </div>
+                <div class="swatch" style="background:#1f2742; flex-grow:15.2;" title="#1f2742 (15.2%)">
+                    <span class="swatch-label">#1f2742</span>
+                </div>
+                <div class="swatch" style="background:#53748e; flex-grow:11.9;" title="#53748e (11.9%)">
+                    <span class="swatch-label">#53748e</span>
+                </div>
+                <div class="swatch" style="background:#0a0a08; flex-grow:9.0;" title="#0a0a08 (9.0%)">
+                    <span class="swatch-label">#0a0a08</span>
+                </div>
+            </div>
+            <div class="card-info">
+                <p class="card-mood-text">차가운 새벽, 맑고 푸른 여명</p>
+                <div class="card-meta">
+                    <span class="meta-item">따뜻함 0%</span>
+                    <span class="meta-item">밝기 93.2</span>
+                </div>
+            </div>
+        </article>
+        <article class="card" data-mood="burning_dawn" style="animation-delay: 1.04s">
+            <div class="card-image-wrap">
+                <img src="photos/2022-03-05__AURYPNHhew.jpg" alt="dawn" class="card-photo" loading="lazy">
+                <div class="card-mood-badge">🔥</div>
+            </div>
+            <div class="card-palette">
+                <div class="swatch" style="background:#9c7e71; flex-grow:20.5;" title="#9c7e71 (20.5%)">
+                    <span class="swatch-label">#9c7e71</span>
+                </div>
+                <div class="swatch" style="background:#8d7368; flex-grow:18.4;" title="#8d7368 (18.4%)">
+                    <span class="swatch-label">#8d7368</span>
+                </div>
+                <div class="swatch" style="background:#b1826d; flex-grow:18.3;" title="#b1826d (18.3%)">
+                    <span class="swatch-label">#b1826d</span>
+                </div>
+                <div class="swatch" style="background:#c07c5e; flex-grow:17.4;" title="#c07c5e (17.4%)">
+                    <span class="swatch-label">#c07c5e</span>
+                </div>
+                <div class="swatch" style="background:#a77057; flex-grow:14.8;" title="#a77057 (14.8%)">
+                    <span class="swatch-label">#a77057</span>
+                </div>
+                <div class="swatch" style="background:#7c6b64; flex-grow:10.7;" title="#7c6b64 (10.7%)">
+                    <span class="swatch-label">#7c6b64</span>
+                </div>
+            </div>
+            <div class="card-info">
+                <p class="card-mood-text">타오르는 새벽, 하늘을 물들이는 붉은 빛</p>
+                <div class="card-meta">
+                    <span class="meta-item">따뜻함 100.1%</span>
+                    <span class="meta-item">밝기 159.5</span>
+                </div>
+            </div>
+        </article>
+        <article class="card" data-mood="cool_dawn" style="animation-delay: 1.12s">
             <div class="card-image-wrap">
                 <img src="photos/2022-03-05_q1WLDd6t0jQ.jpg" alt="dawn" class="card-photo" loading="lazy">
                 <div class="card-mood-badge">🧊</div>
             </div>
             <div class="card-palette">
-                
-                <div class="swatch" style="background:#596a84; flex-grow:22.3;"
-                     title="#596a84 (22.3%)">
+                <div class="swatch" style="background:#596a84; flex-grow:22.3;" title="#596a84 (22.3%)">
                     <span class="swatch-label">#596a84</span>
                 </div>
-                <div class="swatch" style="background:#495d79; flex-grow:19.9;"
-                     title="#495d79 (19.9%)">
+                <div class="swatch" style="background:#495d79; flex-grow:19.9;" title="#495d79 (19.9%)">
                     <span class="swatch-label">#495d79</span>
                 </div>
-                <div class="swatch" style="background:#6b7890; flex-grow:18.8;"
-                     title="#6b7890 (18.8%)">
+                <div class="swatch" style="background:#6b7890; flex-grow:18.8;" title="#6b7890 (18.8%)">
                     <span class="swatch-label">#6b7890</span>
                 </div>
-                <div class="swatch" style="background:#82889c; flex-grow:15.7;"
-                     title="#82889c (15.7%)">
+                <div class="swatch" style="background:#82889c; flex-grow:15.7;" title="#82889c (15.7%)">
                     <span class="swatch-label">#82889c</span>
                 </div>
-                <div class="swatch" style="background:#384c68; flex-grow:12.1;"
-                     title="#384c68 (12.1%)">
+                <div class="swatch" style="background:#384c68; flex-grow:12.1;" title="#384c68 (12.1%)">
                     <span class="swatch-label">#384c68</span>
                 </div>
-                <div class="swatch" style="background:#9e99a5; flex-grow:11.2;"
-                     title="#9e99a5 (11.2%)">
+                <div class="swatch" style="background:#9e99a5; flex-grow:11.2;" title="#9e99a5 (11.2%)">
                     <span class="swatch-label">#9e99a5</span>
                 </div>
             </div>
@@ -280,35 +561,28 @@
                 </div>
             </div>
         </article>
-        <article class="card" data-mood="pastel_dawn" style="animation-delay: 0.48s">
+        <article class="card" data-mood="pastel_dawn" style="animation-delay: 1.2s">
             <div class="card-image-wrap">
                 <img src="photos/2022-04-15_bRzFHjL-QmU.jpg" alt="dawn" class="card-photo" loading="lazy">
                 <div class="card-mood-badge">🎨</div>
             </div>
             <div class="card-palette">
-                
-                <div class="swatch" style="background:#867481; flex-grow:22.2;"
-                     title="#867481 (22.2%)">
+                <div class="swatch" style="background:#867481; flex-grow:22.2;" title="#867481 (22.2%)">
                     <span class="swatch-label">#867481</span>
                 </div>
-                <div class="swatch" style="background:#fbbd74; flex-grow:18.3;"
-                     title="#fbbd74 (18.3%)">
+                <div class="swatch" style="background:#fbbd74; flex-grow:18.3;" title="#fbbd74 (18.3%)">
                     <span class="swatch-label">#fbbd74</span>
                 </div>
-                <div class="swatch" style="background:#5d5d74; flex-grow:17.6;"
-                     title="#5d5d74 (17.6%)">
+                <div class="swatch" style="background:#5d5d74; flex-grow:17.6;" title="#5d5d74 (17.6%)">
                     <span class="swatch-label">#5d5d74</span>
                 </div>
-                <div class="swatch" style="background:#e49a72; flex-grow:16.6;"
-                     title="#e49a72 (16.6%)">
+                <div class="swatch" style="background:#e49a72; flex-grow:16.6;" title="#e49a72 (16.6%)">
                     <span class="swatch-label">#e49a72</span>
                 </div>
-                <div class="swatch" style="background:#ba8377; flex-grow:14.6;"
-                     title="#ba8377 (14.6%)">
+                <div class="swatch" style="background:#ba8377; flex-grow:14.6;" title="#ba8377 (14.6%)">
                     <span class="swatch-label">#ba8377</span>
                 </div>
-                <div class="swatch" style="background:#3b4254; flex-grow:10.7;"
-                     title="#3b4254 (10.7%)">
+                <div class="swatch" style="background:#3b4254; flex-grow:10.7;" title="#3b4254 (10.7%)">
                     <span class="swatch-label">#3b4254</span>
                 </div>
             </div>
@@ -320,35 +594,61 @@
                 </div>
             </div>
         </article>
-        <article class="card" data-mood="cool_dawn" style="animation-delay: 0.56s">
+        <article class="card" data-mood="pastel_dawn" style="animation-delay: 1.28s">
+            <div class="card-image-wrap">
+                <img src="photos/2022-08-09_ZHv9fJEljMA.jpg" alt="dawn" class="card-photo" loading="lazy">
+                <div class="card-mood-badge">🎨</div>
+            </div>
+            <div class="card-palette">
+                <div class="swatch" style="background:#170f03; flex-grow:40.8;" title="#170f03 (40.8%)">
+                    <span class="swatch-label">#170f03</span>
+                </div>
+                <div class="swatch" style="background:#2e2d1b; flex-grow:25.4;" title="#2e2d1b (25.4%)">
+                    <span class="swatch-label">#2e2d1b</span>
+                </div>
+                <div class="swatch" style="background:#4b5a4d; flex-grow:12.1;" title="#4b5a4d (12.1%)">
+                    <span class="swatch-label">#4b5a4d</span>
+                </div>
+                <div class="swatch" style="background:#758375; flex-grow:10.4;" title="#758375 (10.4%)">
+                    <span class="swatch-label">#758375</span>
+                </div>
+                <div class="swatch" style="background:#9ea396; flex-grow:9.9;" title="#9ea396 (9.9%)">
+                    <span class="swatch-label">#9ea396</span>
+                </div>
+                <div class="swatch" style="background:#c83403; flex-grow:1.4;" title="#c83403 (1.4%)">
+                    <span class="swatch-label">#c83403</span>
+                </div>
+            </div>
+            <div class="card-info">
+                <p class="card-mood-text">파스텔 새벽, 부드러운 색들이 어우러진 하늘</p>
+                <div class="card-meta">
+                    <span class="meta-item">따뜻함 67.6%</span>
+                    <span class="meta-item">밝기 108.8</span>
+                </div>
+            </div>
+        </article>
+        <article class="card" data-mood="cool_dawn" style="animation-delay: 1.36s">
             <div class="card-image-wrap">
                 <img src="photos/2022-10-06_F_-N2L2Cwiw.jpg" alt="dawn" class="card-photo" loading="lazy">
                 <div class="card-mood-badge">🧊</div>
             </div>
             <div class="card-palette">
-                
-                <div class="swatch" style="background:#99abcb; flex-grow:29.1;"
-                     title="#99abcb (29.1%)">
+                <div class="swatch" style="background:#99abcb; flex-grow:29.1;" title="#99abcb (29.1%)">
                     <span class="swatch-label">#99abcb</span>
                 </div>
-                <div class="swatch" style="background:#8397b3; flex-grow:26.1;"
-                     title="#8397b3 (26.1%)">
+                <div class="swatch" style="background:#8397b3; flex-grow:26.1;" title="#8397b3 (26.1%)">
                     <span class="swatch-label">#8397b3</span>
                 </div>
-                <div class="swatch" style="background:#b6bed0; flex-grow:15.0;"
-                     title="#b6bed0 (15.0%)">
+                <div class="swatch" style="background:#b6bed0; flex-grow:15.0;" title="#b6bed0 (15.0%)">
                     <span class="swatch-label">#b6bed0</span>
                 </div>
-                <div class="swatch" style="background:#d8d7da; flex-grow:12.1;"
-                     title="#d8d7da (12.1%)">
+                <div class="swatch" style="background:#d8d7da; flex-grow:12.1;" title="#d8d7da (12.1%)">
                     <span class="swatch-label">#d8d7da</span>
                 </div>
-                <div class="swatch" style="background:#647991; flex-grow:9.1;"
-                     title="#647991 (9.1%)">
+                <div class="swatch" style="background:#647991; flex-grow:9.1;" title="#647991 (9.1%)">
                     <span class="swatch-label">#647991</span>
                 </div>
-                <div class="swatch" style="background:#f7f4ee; flex-grow:8.6;"
-                     title="#f7f4ee (8.6%)">
+                <div class="swatch" style="background:#f7f4ee; flex-grow:8.6;" title="#f7f4ee (8.6%)">
                     <span class="swatch-label">#f7f4ee</span>
                 </div>
             </div>
@@ -360,35 +660,28 @@
                 </div>
             </div>
         </article>
-        <article class="card" data-mood="cool_dawn" style="animation-delay: 0.64s">
+        <article class="card" data-mood="cool_dawn" style="animation-delay: 1.44s">
             <div class="card-image-wrap">
                 <img src="photos/2023-10-08_BFpOC3XXDms.jpg" alt="dawn" class="card-photo" loading="lazy">
                 <div class="card-mood-badge">🧊</div>
             </div>
             <div class="card-palette">
-                
-                <div class="swatch" style="background:#5a95a8; flex-grow:33.5;"
-                     title="#5a95a8 (33.5%)">
+                <div class="swatch" style="background:#5a95a8; flex-grow:33.5;" title="#5a95a8 (33.5%)">
                     <span class="swatch-label">#5a95a8</span>
                 </div>
-                <div class="swatch" style="background:#73a6b8; flex-grow:28.7;"
-                     title="#73a6b8 (28.7%)">
+                <div class="swatch" style="background:#73a6b8; flex-grow:28.7;" title="#73a6b8 (28.7%)">
                     <span class="swatch-label">#73a6b8</span>
                 </div>
-                <div class="swatch" style="background:#9bbecb; flex-grow:11.9;"
-                     title="#9bbecb (11.9%)">
+                <div class="swatch" style="background:#9bbecb; flex-grow:11.9;" title="#9bbecb (11.9%)">
                     <span class="swatch-label">#9bbecb</span>
                 </div>
-                <div class="swatch" style="background:#4e727a; flex-grow:10.9;"
-                     title="#4e727a (10.9%)">
+                <div class="swatch" style="background:#4e727a; flex-grow:10.9;" title="#4e727a (10.9%)">
                     <span class="swatch-label">#4e727a</span>
                 </div>
-                <div class="swatch" style="background:#2f4a4e; flex-grow:8.3;"
-                     title="#2f4a4e (8.3%)">
+                <div class="swatch" style="background:#2f4a4e; flex-grow:8.3;" title="#2f4a4e (8.3%)">
                     <span class="swatch-label">#2f4a4e</span>
                 </div>
-                <div class="swatch" style="background:#0f1b1a; flex-grow:6.6;"
-                     title="#0f1b1a (6.6%)">
+                <div class="swatch" style="background:#0f1b1a; flex-grow:6.6;" title="#0f1b1a (6.6%)">
                     <span class="swatch-label">#0f1b1a</span>
                 </div>
             </div>
@@ -400,35 +693,94 @@
                 </div>
             </div>
         </article>
-        <article class="card" data-mood="burning_dawn" style="animation-delay: 0.72s">
+        <article class="card" data-mood="deep_night" style="animation-delay: 1.52s">
+            <div class="card-image-wrap">
+                <img src="photos/2024-08-01_3OddqWK6KA8.jpg" alt="dawn" class="card-photo" loading="lazy">
+                <div class="card-mood-badge">🌑</div>
+            </div>
+            <div class="card-palette">
+                <div class="swatch" style="background:#110e0d; flex-grow:29.9;" title="#110e0d (29.9%)">
+                    <span class="swatch-label">#110e0d</span>
+                </div>
+                <div class="swatch" style="background:#191112; flex-grow:27.5;" title="#191112 (27.5%)">
+                    <span class="swatch-label">#191112</span>
+                </div>
+                <div class="swatch" style="background:#251719; flex-grow:16.1;" title="#251719 (16.1%)">
+                    <span class="swatch-label">#251719</span>
+                </div>
+                <div class="swatch" style="background:#361e21; flex-grow:11.7;" title="#361e21 (11.7%)">
+                    <span class="swatch-label">#361e21</span>
+                </div>
+                <div class="swatch" style="background:#4a262a; flex-grow:8.6;" title="#4a262a (8.6%)">
+                    <span class="swatch-label">#4a262a</span>
+                </div>
+                <div class="swatch" style="background:#613136; flex-grow:6.2;" title="#613136 (6.2%)">
+                    <span class="swatch-label">#613136</span>
+                </div>
+            </div>
+            <div class="card-info">
+                <p class="card-mood-text">아직 깊은 밤, 새벽을 기다리는 고요한 어둠</p>
+                <div class="card-meta">
+                    <span class="meta-item">따뜻함 100.0%</span>
+                    <span class="meta-item">밝기 50.7</span>
+                </div>
+            </div>
+        </article>
+        <article class="card" data-mood="cool_dawn" style="animation-delay: 1.6s">
+            <div class="card-image-wrap">
+                <img src="photos/2024-08-19_9oIGmix5c9Q.jpg" alt="dawn" class="card-photo" loading="lazy">
+                <div class="card-mood-badge">🧊</div>
+            </div>
+            <div class="card-palette">
+                <div class="swatch" style="background:#352328; flex-grow:30.0;" title="#352328 (30.0%)">
+                    <span class="swatch-label">#352328</span>
+                </div>
+                <div class="swatch" style="background:#5d3c3d; flex-grow:20.9;" title="#5d3c3d (20.9%)">
+                    <span class="swatch-label">#5d3c3d</span>
+                </div>
+                <div class="swatch" style="background:#946046; flex-grow:15.1;" title="#946046 (15.1%)">
+                    <span class="swatch-label">#946046</span>
+                </div>
+                <div class="swatch" style="background:#ca8c57; flex-grow:12.4;" title="#ca8c57 (12.4%)">
+                    <span class="swatch-label">#ca8c57</span>
+                </div>
+                <div class="swatch" style="background:#ecbc8c; flex-grow:11.6;" title="#ecbc8c (11.6%)">
+                    <span class="swatch-label">#ecbc8c</span>
+                </div>
+                <div class="swatch" style="background:#0a080b; flex-grow:9.9;" title="#0a080b (9.9%)">
+                    <span class="swatch-label">#0a080b</span>
+                </div>
+            </div>
+            <div class="card-info">
+                <p class="card-mood-text">차가운 새벽, 맑고 푸른 여명</p>
+                <div class="card-meta">
+                    <span class="meta-item">따뜻함 90.0%</span>
+                    <span class="meta-item">밝기 123.8</span>
+                </div>
+            </div>
+        </article>
+        <article class="card" data-mood="burning_dawn" style="animation-delay: 1.68s">
             <div class="card-image-wrap">
                 <img src="photos/2025-01-01_qthhkLClcB8.jpg" alt="dawn" class="card-photo" loading="lazy">
                 <div class="card-mood-badge">🔥</div>
             </div>
             <div class="card-palette">
-                
-                <div class="swatch" style="background:#6b2310; flex-grow:23.8;"
-                     title="#6b2310 (23.8%)">
+                <div class="swatch" style="background:#6b2310; flex-grow:23.8;" title="#6b2310 (23.8%)">
                     <span class="swatch-label">#6b2310</span>
                 </div>
-                <div class="swatch" style="background:#793019; flex-grow:19.5;"
-                     title="#793019 (19.5%)">
+                <div class="swatch" style="background:#793019; flex-grow:19.5;" title="#793019 (19.5%)">
                     <span class="swatch-label">#793019</span>
                 </div>
-                <div class="swatch" style="background:#541c0e; flex-grow:19.0;"
-                     title="#541c0e (19.0%)">
+                <div class="swatch" style="background:#541c0e; flex-grow:19.0;" title="#541c0e (19.0%)">
                     <span class="swatch-label">#541c0e</span>
                 </div>
-                <div class="swatch" style="background:#832b10; flex-grow:17.9;"
-                     title="#832b10 (17.9%)">
+                <div class="swatch" style="background:#832b10; flex-grow:17.9;" title="#832b10 (17.9%)">
                     <span class="swatch-label">#832b10</span>
                 </div>
-                <div class="swatch" style="background:#9c3712; flex-grow:10.0;"
-                     title="#9c3712 (10.0%)">
+                <div class="swatch" style="background:#9c3712; flex-grow:10.0;" title="#9c3712 (10.0%)">
                     <span class="swatch-label">#9c3712</span>
                 </div>
-                <div class="swatch" style="background:#411209; flex-grow:9.9;"
-                     title="#411209 (9.9%)">
+                <div class="swatch" style="background:#411209; flex-grow:9.9;" title="#411209 (9.9%)">
                     <span class="swatch-label">#411209</span>
                 </div>
             </div>
@@ -446,32 +798,7 @@
         <p class="footer-text">for the dawn I dearly miss</p>
     </footer>
 
-    <script>
-        let activeFilter = null;
-
-        function filterMood(mood) {
-            const cards = document.querySelectorAll('.card');
-            const stats = document.querySelectorAll('.stat-item');
-
-            if (activeFilter === mood) {
-                activeFilter = null;
-                cards.forEach(c => c.classList.remove('hidden'));
-                stats.forEach(s => s.classList.remove('active'));
-                return;
-            }
-
-            activeFilter = mood;
-            cards.forEach(c => {
-                if (c.dataset.mood === mood) {
-                    c.classList.remove('hidden');
-                } else {
-                    c.classList.add('hidden');
-                }
-            });
-            stats.forEach(s => {
-                s.classList.toggle('active', s.dataset.mood === mood);
-            });
-        }
-    </script>
+    <canvas id="palette-canvas" style="display:none;"></canvas>
+    <script src="script.js"></script>
 </body>
 </html>

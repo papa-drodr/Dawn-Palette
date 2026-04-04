@@ -30,18 +30,20 @@ body {
     overflow-x: hidden;
 }
 
-/* ── 배경 ── */
+/* ── 배경: 라일락 → 블랙 그라데이션 ── */
 body::before {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 60vh;
+    height: 100vh;
     background: linear-gradient(
         180deg,
-        rgba(30, 20, 40, 0.8) 0%,
-        rgba(20, 15, 30, 0.4) 40%,
+        rgba(180, 140, 200, 0.25) 0%,
+        rgba(140, 110, 170, 0.15) 20%,
+        rgba(90, 70, 130, 0.10) 30%,
+        rgba(40, 30, 60, 0.06) 50%,
         transparent 100%
     );
     pointer-events: none;
@@ -94,6 +96,137 @@ header {
     text-transform: uppercase;
     opacity: 0;
     animation: fadeUp 1.2s ease 0.6s forwards;
+}
+
+/* ── 업로드 섹션 ── */
+.upload-section {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+}
+
+.upload-area {
+    border: 2px dashed var(--border-light);
+    border-radius: 16px;
+    padding: 48px 32px;
+    text-align: center;
+    transition: border-color 0.3s, background 0.3s;
+    cursor: pointer;
+}
+
+.upload-area:hover {
+    border-color: var(--accent-dim);
+    background: rgba(196, 149, 106, 0.03);
+}
+
+.upload-area.drag-over {
+    border-color: var(--accent);
+    background: rgba(196, 149, 106, 0.06);
+    border-style: solid;
+}
+
+.upload-icon {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+}
+
+.upload-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.upload-button {
+    display: inline-block;
+    padding: 10px 28px;
+    background: transparent;
+    border: 1px solid var(--accent-dim);
+    border-radius: 100px;
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.upload-button:hover {
+    background: rgba(196, 149, 106, 0.08);
+    border-color: var(--accent);
+}
+
+.upload-hint {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-top: 12px;
+}
+
+/* 업로드 결과 */
+.upload-result {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    animation: fadeUp 0.6s ease forwards;
+}
+
+.upload-result-image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #0d0d14;
+}
+
+.upload-result-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-result-palette {
+    display: flex;
+    height: 32px;
+    border-top: 1px solid var(--border);
+}
+
+.upload-result-info {
+    padding: 20px 24px;
+    text-align: center;
+}
+
+.upload-mood-emoji {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.upload-mood-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.upload-reset {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--border);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.upload-reset:hover {
+    background: rgba(196, 149, 106, 0.05);
 }
 
 /* ── 분위기 통계 ── */
@@ -320,6 +453,10 @@ footer {
 
 /* ── 반응형 ── */
 @media (max-width: 420px) {
+    .upload-area {
+        padding: 36px 20px;
+    }
+
     .gallery {
         grid-template-columns: 1fr;
         gap: 16px;

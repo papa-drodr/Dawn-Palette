@@ -1,15 +1,15 @@
 """
-Dawn Palette - 새벽 하늘 사진 수집기
-Unsplash API를 사용하여 전 세계의 새벽 하늘 사진을 수집합니다.
+Dawn Palette - Dawn Sky Photo Collector
+Collects dawn sky photos from around the world using the Unsplash API.
 
-사용법:
-    1. .env 파일에 UNSPLASH_ACCESS_KEY를 설정하세요.
-    2. python collect_dawn.py 실행
+Usage:
+    1. Set UNSPLASH_ACCESS_KEY in the .env file.
+    2. Run: python collect_dawn.py
 
-옵션:
-    --query    검색어 (기본값: "dawn sky")
-    --count    수집할 사진 수 (기본값: 10, 최대 30)
-    --page     페이지 번호 (기본값: 1)
+Options:
+    --query    Search query (default: "dawn sky")
+    --count    Number of photos to collect (default: 10, max: 30)
+    --page     Page number (default: 1)
 """
 
 import argparse
@@ -21,7 +21,7 @@ from datetime import datetime
 from pathlib import Path
 
 # ------------------------
-# 설정
+# Configuration
 # ------------------------
 
 DATA_DIR = Path(__file__).parent / "data"
@@ -38,7 +38,7 @@ SEARCH_QUERIES = [
 
 
 def load_api_key():
-    """API 키를 .env 파일 또는 환경변수에서 가져옵니다."""
+    """Load API key from .env file or environment variable."""
     env_path = Path(__file__).parent / ".env"
     if env_path.exists():
         with open(env_path) as f:
@@ -50,14 +50,14 @@ def load_api_key():
     key = os.environ.get("UNSPLASH_ACCESS_KEY")
     if not key:
         print("=" * 50)
-        print("❌ API 키가 설정되지 않았습니다!")
+        print("API key is not set!")
         print()
-        print("아래 방법 중 하나로 설정해주세요:")
+        print("Set it using one of the following methods:")
         print()
-        print("방법 1) .env 파일 생성:")
+        print("Method 1) Create a .env file:")
         print("  UNSPLASH_ACCESS_KEY=your_key_here")
         print()
-        print("방법 2) 환경변수 설정:")
+        print("Method 2) Set an environment variable:")
         print("  export UNSPLASH_ACCESS_KEY=your_key_here")
         print("=" * 50)
         return None
@@ -65,13 +65,13 @@ def load_api_key():
 
 
 def search_photos(api_key, query="dawn sky", page=1, per_page=10):
-    """Unsplash API로 사진을 검색합니다."""
+    """Search photos using the Unsplash API."""
     params = urllib.parse.urlencode(
         {
             "query": query,
             "page": page,
             "per_page": per_page,
-            "orientation": "landscape",  # 풍경 사진 위주
+            "orientation": "landscape",
             "order_by": "relevant",
         }
     )
@@ -87,32 +87,31 @@ def search_photos(api_key, query="dawn sky", page=1, per_page=10):
             data = json.loads(response.read().decode())
             return data
     except urllib.error.HTTPError as e:
-        print(f"❌ API 요청 실패: {e.code} {e.reason}")
+        print(f"API request failed: {e.code} {e.reason}")
         if e.code == 401:
-            print("   → API 키를 확인해주세요.")
+            print("→ Please check your API key.")
         elif e.code == 403:
-            print("   → 요청 한도를 초과했습니다. 잠시 후 다시 시도해주세요.")
+            print("→ Rate limit exceeded. Please try again later.")
         return None
 
 
 def download_photo(url, save_path):
-    """사진을 다운로드합니다."""
+    """Download a photo."""
     try:
         urllib.request.urlretrieve(url, save_path)
         return True
     except Exception as e:
-        print(f"   ⚠️  다운로드 실패: {e}")
+        print(f"Download failed: {e}")
         return False
 
 
 def collect(api_key, query="dawn sky", count=10, page=1):
-    """새벽 사진을 수집하고 메타데이터를 저장합니다."""
+    """Collect dawn photos and save metadata."""
 
-    # make dir
     PHOTOS_DIR.mkdir(parents=True, exist_ok=True)
     META_DIR.mkdir(parents=True, exist_ok=True)
 
-    print(f"\n🌅 '{query}' 검색 중... (page {page})")
+    print(f"\n Searching '{query}'... (page {page})")
     print("-" * 40)
 
     result = search_photos(api_key, query=query, page=page, per_page=count)
@@ -122,7 +121,7 @@ def collect(api_key, query="dawn sky", count=10, page=1):
 
     photos = result.get("results", [])
     total = result.get("total", 0)
-    print(f"📸 총 {total}개 중 {len(photos)}개 가져옴\n")
+    print(f"📸 Fetched {len(photos)} of {total} total\n")
 
     collected = []
     for i, photo in enumerate(photos, 1):
@@ -134,26 +133,26 @@ def collect(api_key, query="dawn sky", count=10, page=1):
         created_at = photo["created_at"]
         color = photo.get("color", "#000000")
 
-        # 다운로드 URL (regular size: 1080px)
+        # Download URL (regular size: 1080px)
         download_url = photo["urls"]["regular"]
 
-        # 파일명: 날짜_id
+        # Filename: date_id
         date_str = created_at[:10]
         filename = f"{date_str}_{photo_id}.jpg"
         save_path = PHOTOS_DIR / filename
 
-        print(f"  [{i}/{len(photos)}] {description[:40]}...")
-        print(f"           📷 {photographer} | 🎨 {color}")
+        print(f"[{i}/{len(photos)}] {description[:40]}...")
+        print(f"{photographer} | {color}")
 
-        # 사진 다운로드
+        # Download photo
         if save_path.exists():
-            print("           ⏭️  이미 다운로드됨")
+            print("Already downloaded")
         else:
             success = download_photo(download_url, save_path)
             if success:
-                print("           ✅ 저장 완료")
+                print("Saved")
 
-        # metadata save
+        # Save metadata
         metadata = {
             "id": photo_id,
             "description": description,
@@ -176,23 +175,25 @@ def collect(api_key, query="dawn sky", count=10, page=1):
         collected.append(metadata)
         print()
 
-    print(f"✨ 수집 완료! {len(collected)}장 저장됨")
-    print(f"   📁 사진: {PHOTOS_DIR}")
-    print(f"   📁 메타: {META_DIR}")
+    print(f"Collection complete! {len(collected)} photos saved")
+    print(f"Photos: {PHOTOS_DIR}")
+    print(f"Metadata: {META_DIR}")
 
     return collected
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🌅 Dawn Palette - 새벽 하늘 사진 수집기"
+        description="Dawn Palette - Dawn Sky Photo Collector"
     )
-    parser.add_argument("--query", type=str, default="dawn sky", help="검색어")
+    parser.add_argument("--query", type=str, default="dawn sky", help="Search query")
     parser.add_argument(
-        "--count", type=int, default=10, help="수집할 사진 수 (최대 30)"
+        "--count", type=int, default=10, help="Number of photos to collect (max 30)"
     )
-    parser.add_argument("--page", type=int, default=1, help="페이지 번호")
-    parser.add_argument("--all", action="store_true", help="모든 기본 검색어로 수집")
+    parser.add_argument("--page", type=int, default=1, help="Page number")
+    parser.add_argument(
+        "--all", action="store_true", help="Collect with all default queries"
+    )
     args = parser.parse_args()
 
     api_key = load_api_key()
@@ -200,7 +201,6 @@ def main():
         return
 
     if args.all:
-        # 모든 기본 검색어로 수집
         for query in SEARCH_QUERIES:
             collect(api_key, query=query, count=args.count, page=args.page)
     else:
